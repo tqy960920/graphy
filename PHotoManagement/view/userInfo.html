@@ -1,0 +1,30 @@
+<div>
+    <h2 class="body-title">{{title}}</h2>
+    <div class="user">
+        <table class="table table-hover userTable">
+            <thead>
+            <th>头像</th>
+            <th>昵称</th>
+            <th>手机号</th>
+            <th>操作</th>
+            </thead>
+            <tbody class="userTbody">
+            <tr ng-repeat="item in userList | pageFilter : dataPage1.pageSize : dataPage1.pageIndex">
+                <td><img ng-src="{{item.Header}}" ></td>
+                <td>{{item.NickName}}</td>
+                <td>{{item.Phone}}</td>
+                <td>
+                    <a ui-sref="userDetail({Id:item.Id})">详情</a>
+                    <!--<a ui-sref="userDetail({Id:item.Id ,Name:'abc'})">详情</a>-->
+                    <!--<a ng-href="userDetail?Id={{item.Id}}">详情</a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--<ul>-->
+            <!--<li ng-repeat="num in dataPage1.pages">-->
+                <!--<button ng-click="changePage1(num);" ng-class="{'pageActive': dataPage1.pageIndex == num }">{{num}}</button>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+</div>

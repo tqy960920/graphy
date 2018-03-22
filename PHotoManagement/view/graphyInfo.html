@@ -1,0 +1,30 @@
+<div>
+   <h2 class="body-title">{{title}}</h2>
+   <div class="graphy">
+      <div class="g-top">
+         <label>
+            标签类别：
+            <select class="labelSelect" ng-model="KeyLabel" ng-options="item.Name for item in labelList">
+            </select>
+         </label>
+         <label>
+            关键字查询：
+            <input type="text" ng-model="KeyName" placeholder="请输入摄影帖名称"/>
+         </label>
+      </div>
+      <div class="g-body">
+         <div class="g-item" ng-repeat="item in graphyList | photoFilter : KeyLabel : KeyName">
+            <div class="g-item-top">
+               <div>标题：{{item.Title}}</div>
+            </div>
+            <a ui-sref="graphyDetail({Id:item.Id})">
+               <img ng-src="{{item.Images[0]}}" alt="摄影作品"/>
+            </a>
+            <div class="g-item-bom">
+               <div>摄影者：{{item.NickName}}</div>
+               <div>{{item.CreateTime}}</div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

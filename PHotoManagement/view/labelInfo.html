@@ -1,0 +1,43 @@
+<div >
+    <h1 class="body-title">{{title}}</h1>
+    <div class="labels">
+        <button class="btn btn-info add" ng-click="addLabel()">添加新标签</button>
+        <table class="table table-hover labelTable">
+            <thead>
+                <td>序号</td>
+                <td>标签名</td>
+                <td>操作</td>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in labelLists | pageFilter : dataPage2.pageSize : dataPage2.pageIndex">
+                    <td >{{$index+1}}</td>
+                    <td ng-if="item.nameShow">{{item.Name}}</td>
+                    <td ng-if="item.nameShow">
+                        <a  ng-click="labelEdit(item)">编辑</a>&nbsp;&nbsp;
+                        <a  ng-click="labelDel(item,$index)">删除</a>
+                    </td>
+                    <!--编辑-->
+                    <td ng-if="!item.nameShow"><input type="text" ng-model="item.Name"/></td>
+                    <td ng-if="!item.nameShow">
+                        <button class="btn btn-primary" ng-click="editSave(item)">保存</button>&nbsp;&nbsp;
+                        <button class="btn btn-info" ng-click="editCancel(item)">取消</button>
+                    </td>
+                </tr>
+                <!--添加-->
+                <tr ng-if="labelShow">
+                    <td>{{labelNum+1}}</td>
+                    <td><input type="text" ng-model="labelItem.name"/></td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="labelSave()">保存</button>
+                        <button class="btn btn-info" ng-click="labelCancel()">取消</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li ng-repeat="num in dataPage2.pages">
+                <button ng-click="changePage1(num);" ng-class="{'pageActive': dataPage2.pageIndex == num }">{{num}}</button>
+            </li>
+        </ul>
+    </div>
+</div>

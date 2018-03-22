@@ -1,0 +1,41 @@
+<div>
+    <h2 class="body-title">{{title}}</h2>
+    <button class="btn btn-warning back" ng-click="back()">返回上一页</button>
+    <div class="body">
+        <div class="body-top">
+            <div class="btop-left">
+                <img ng-src="{{singleGraphy.Header}}" alt="摄影师"/>
+                <div>{{singleGraphy.NickName}}</div>
+            </div>
+            <div class="btop-right">
+                <div class="btop-title">
+                    <div>
+                        <p>主题：{{singleGraphy.Title}}</p>
+                        <p>寄语：{{singleGraphy.Introduce}}</p>
+                    </div>
+                    <div>
+                        <p>时间：{{singleGraphy.CreateTime}}</p>
+                        <p>标签：{{singleGraphy.LabelName}}</p>
+                    </div>
+                </div>
+                <div class="btop-body">
+                    <img ng-src="{{img}}" alt="摄影贴图" ng-repeat="img in singleGraphy.Images"/>
+                </div>
+            </div>
+        </div>
+        <h3>评论</h3>
+        <div class="Comment">
+            <div class="body-com" ng-repeat="item in singleComment">
+                <div class="bcom-left">
+                    <img ng-src="{{item.Header}}" alt="摄影师"/>
+                </div>
+                <div class="bcom-right">
+                    <div class="comName">评论人：{{item.NickName}}</div>
+                    <div class="comImg">内容：{{item.Content}}</div>
+                    <div class="comTime">时间：{{item.CommentTime}}</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

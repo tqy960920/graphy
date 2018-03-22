@@ -1,0 +1,19 @@
+<div>
+    <h2 class="body-title">{{title}}</h2>
+    <div class="skill">
+        <button class="btn btn-info add" ng-click="addSkill()">添加技巧贴</button>
+        <div class="skills">
+            <div class="skill-item" ng-repeat="item in skillList ">
+                <div class="skill-title">{{item.Title}}</div>
+                <a ui-sref="editSkill({Id:item.Id})">
+                    <img ng-src="{{item.Image}}" alt="技巧图"/>
+                </a>
+                <div class="skill-content">{{item.Content}}</div>
+                <div class="btns">
+                    <a class="btn btn-warning" ui-sref="editSkill({Id:item.Id})">编辑</a>
+                    <button class="btn btn-danger" ng-click="deleteSkill(item,$index)">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div>
+    <h2 class="body-title">{{title}}</h2>
+    <button class="btn btn-warning back" ng-click="back()">返回上一页</button>
+    <div class="singleUser">
+        <div class="singleU-left">
+            <h3>基本信息</h3>
+            <div class="baseMsg">
+                <img ng-src="{{userDetail.Header}}" alt="用户头像"/>
+                <div>
+                    <label class="userLabel">昵称:</label>
+                    <p>{{userDetail.NickName}}</p>
+                </div>
+                <div>
+                    <label class="userLabel">手机:</label>
+                    <p> {{userDetail.Phone}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="singleU-right">
+            <h3>他的粉丝</h3>
+            <div class="base-fen" ng-if="userShow1">
+                <div class="fen-item" ng-repeat="item in userFensi">
+                    <img ng-src="{{item.Header}}" alt="粉丝"/>
+                    <div class="fen-msg">
+                        <div>
+                            <p>{{item.NickName}}</p>
+                        </div>
+                        <div>
+                            <p>{{item.Phone}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!userShow1" class="no">暂无粉丝！</div>
+            <h3>他的关注</h3>
+            <div class="base-fen" ng-if="userShow2">
+                <div class="fen-item" ng-repeat="item in userGuanzhu">
+                    <img ng-src="{{item.Header}}" alt="粉丝"/>
+                    <div class="fen-msg">
+                        <div>
+                            <p>{{item.NickName}}</p>
+                        </div>
+                        <div>
+                            <p>{{item.Phone}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!userShow2" class="no">暂无关注对象！</div>
+        </div>
+    </div>
+    <div class="userPhoto">
+        <h3>他的动态</h3>
+        <div class="userP-graphy">
+            <div class="userP-item" ng-repeat="item in userGraphy">
+                <div class="dongTai1">
+                    <p>主题：{{item.Title}}</p>
+                    <p>时间：{{item.CreateTime}}</p>
+                </div>
+                <div class="dongTai2" >
+                    <img ng-src="{{img}}" alt="帖子图片" ng-repeat="img in item.Images"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

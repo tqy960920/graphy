@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/action.css">
+
+</head>
+<body>
+    <!--头部-->
+    <div class="navTop">
+        <span>竹鸟摄影后台管理系统</span>
+    </div>
+    <!--左侧导航-->
+    <div class="navLeft">
+        <div class="change">
+            <a ui-sref="homeInfo" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-move"></i>控制面板
+            </a>
+            <a ui-sref="userInfo" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-tree-deciduous"></i>用户管理
+            </a>
+            <a ui-sref="labelInfo" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-align-left"></i>标签管理
+            </a>
+            <a ui-sref="graphyInfo" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-align-left"></i>摄影帖管理
+            </a>
+            <a ui-sref="skillInfo" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-heart-empty"></i>技巧贴管理
+            </a>
+            <a ui-sref="chatInfo" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-heart-empty"></i>交流贴管理
+            </a>
+            <a ui-sref="personal" ui-sref-active="firstactived">
+                <i class="glyphicon glyphicon-stats"></i>作品审核
+            </a>
+        </div>
+    </div>
+
+    <!--右侧显示-->
+    <div class="navBody" ui-view></div>
+
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-ui-router.js"></script>
+    <script src="js/filter.js"></script>
+    <!--<script src="js/directive.js"></script>-->
+    <script src="js/service.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

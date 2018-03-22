@@ -1,0 +1,34 @@
+<div>
+    <h2 class="body-title">{{title}}</h2>
+    <div class="p-btns">
+        <div class="btn btn-default" ng-click="waitGraphy()" ng-class="{'bg': current == true }">待审核</div>
+        <div class="btn btn-default" ng-click="noGraphy()" ng-class="{'bg': !current == true }">审核未通过</div>
+    </div>
+
+    <div class="wait" ng-if="isState">
+        <div class="wait-item" ng-repeat="item in waitGraphys">
+            <img ng-src="{{item.Images[0]}}" alt=""/>
+            <div class="wait-body">
+                <div>
+                    <div>主题：{{item.Title}}</div>
+                    <div>作者：{{item.NickName}}</div>
+                </div>
+                <button class="btn btn-info" ng-click="pass(item,$index)">通过</button>
+                <button class="btn btn-info" ng-click="noPass(item,$index)">不通过</button>
+            </div>
+        </div>
+    </div>
+    <div class="wait" ng-if="!isState">
+        <div class="wait-item" ng-repeat="item in noGraphys">
+            <img ng-src="{{item.Images[0]}}" alt=""/>
+            <div class="wait-body">
+                <div>
+                    <div>主题：{{item.Title}}</div>
+                    <div>作者：{{item.NickName}}</div>
+                </div>
+                <button class="btn btn-info">审核未通过</button>
+            </div>
+        </div>
+    </div>
+
+</div>
